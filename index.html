@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Menstorship Application</title>
+  </head>
+  <body>
+    <main>
+      <h1>Web Development Mentorship Application</h1>
+      <p>Complete all required fields below to apply for the upcoming cohort</p>
+      <!-- 
+        Form Action & Method Choice:
+        - action="/submit-mentorship-application": Targets a hypothetical server endpoint for processing applications.
+        - methon="POST": Used instead of GET so personal details and long responses are transmitted securely in the HTTP request body rather than exposed in the browser's URL bar or server logs.
+        -->
+      <form action="/submit-mentorship-application" method="POST">
+        <!-- Group 1: Personal Information -->
+        <fiedlset>
+          <legend>Personal Information</legend>
+
+          <p>
+            <label for="full-name">Full Name *</label><br />
+            <input
+              type="text"
+              id="full-name"
+              name="full_name"
+              minlength="2"
+              maxlength="100"
+              required
+            />
+          </p>
+
+          <p>
+            <label for="email">Email Address *</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              maxlength="120"
+              required
+            />
+          </p>
+
+          <p>
+            <label for="phone">Phone Number *</label><br />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              minlength="7"
+              maxlength="20"
+              required
+            />
+          </p>
+
+          <p>
+            <label for="dob">Date of Birth *</label><br />
+            <input
+              type="date"
+              id="dob"
+              name="date_of_birth"
+              min="1940-01-01"
+              max="2010-12-31"
+              required
+            />
+          </p>
+
+          <fieldset>
+            <legend>Gender *</legend>
+            <input
+              type="radio"
+              id="gender-female"
+              name="gender"
+              value="female"
+              required
+            />
+            <label for="gender-female">Female</label><br />
+
+            <input type="radio" id="gender-male" name="gender" value="male" />
+            <lable for="gender-male">Male</lable><br />
+
+            <input
+              type="radio"
+              id="gender-nonbinary"
+              name="gender"
+              value="non-binary"
+            />
+            <lable for="gender-nonbinary">Non-binary</lable><br />
+
+            <input
+              type="radio"
+              id="gender-prefer-not"
+              name="gender"
+              value="prefer-not-to-say"
+            />
+            <lable for="gender-prefer-not">Prefer not to say</lable>
+          </fieldset>
+        </fiedlset>
+
+        <!-- Group 2: Development Information -->
+        <fieldset>
+          <legend>Development Information</legend>
+          <fieldset>
+            <lengend>Current Experience Level *</lengend>
+            <input
+              type="radio"
+              id="exp-beginner"
+              name="experience_level"
+              value="beginner"
+              required
+            />
+            <label for="exp-beginner">Beginner (0-6 months)</label><br />
+
+            <input
+              type="radio"
+              id="exp-intermediate"
+              name="experience_level"
+              value="intermediate"
+            />
+            <lable for="exp-intermediate"
+              >Intermediate (6 months - 2 years)</lable
+            ><br />
+
+            <input
+              type="radio"
+              id="exp-advanced"
+              name="experience_level"
+              value="advanced"
+            />
+            <lable for="exp-advanced">Advance (2+ years)</lable>
+          </fieldset>
+
+          <fieldset>
+            <lengend>Areas of Interest (Select all that apply)</lengend>
+            <input
+              type="checkbox"
+              id="interest-html-css"
+              name="interests"
+              value="html-css"
+            />
+            <label for="interest-html-css">HTML &amp; CSS</label><br />
+
+            <input
+              type="checkbox"
+              id="interest-js"
+              name="interests"
+              value="javascript"
+            />
+            <label for="interest-js">Javascript</label><br />
+
+            <input
+              type="checkbox"
+              id="interest-backend"
+              name="interests"
+              value="backend"
+            />
+            <lable for="interest-backend">Backend Development</lable><br />
+
+            <input
+              type="checkbox"
+              id="interest-uiux"
+              name="interests"
+              value="ui-ux"
+            />
+            <label for="interest-uiux">UI/UX &amp; Accessibility </label>
+          </fieldset>
+
+          <p>
+            <label for="learning-track">Preferred Learning Track *</label><br />
+            <select id="learning-track" name="learning_track" required>
+              <option value="">-- Choose a track --</option>
+              <option value="frontend">Frontend Web Development</option>
+              <option value="backend">Backend Engineering</option>
+              <option value="fullstack">Full-Stack Web Development</option>
+              <option value="mobile">Mobile App Development</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="github-url">Github Profile URL</label><br />
+            <input
+              type="url"
+              id="github-url"
+              name="github_url"
+              placeholder="https://github.com"
+              maxlength="200"
+            />
+          </p>
+
+          <p>
+            <label for="motivation"
+              >Why do you want to join this mentorship? *</label
+            ><br />
+            <textarea
+              id="motivation"
+              name="motivation"
+              rows="5"
+              cols="50"
+              minlength="50"
+              maxlength="1000"
+              required
+            ></textarea>
+          </p>
+        </fieldset>
+
+        <!-- Group 3: Availability & Agreement -->
+        <fieldset>
+          <legend>Availability &amp; Terms</legend>
+          <p>
+            <label for="availability">Weekly Availability *</label>
+            <select id="availability" name="availability" required>
+              <option value="">-- Select hours per week --</option>
+              <option value="5-10">5-10 hours per week</option>
+              <option value="10-15">10-15 hours per week</option>
+              <option value="15-plus">15+ hours per week</option>
+            </select>
+          </p>
+
+          <p>
+            <input
+              type="checkbox"
+              id="agree-rules"
+              name="agree_rules"
+              value="yes"
+              required
+            />
+            <label for="agree-rules"
+              >I have read and agree to abide by the mentorship code of conduct
+              and attendance rules. *</label
+            >
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Submit Application</button>
+        </p>
+      </form>
+    </main>
+  </body>
+</html>
